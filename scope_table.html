@@ -1,0 +1,2564 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="en" dir="ltr">
+    <script>
+      // Define dataLayer and the gtag function.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Default ad_storage to "denied".
+      gtag("consent", "default", {
+        "analytics_storage": "denied",
+        "ad_storage": "denied",
+        "ad_user_data": "denied",
+        "ad_personalization": "denied",
+        "wait_for_update": "500"
+      });
+    </script>
+    <!-- OptanonConsentNoticeStart -->
+    <script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" type="text/javascript" charset="UTF-8" data-domain-script="2ba583e7-6068-48ec-9c3a-c06c47106a6e"></script>
+    <script type="text/javascript">
+      function OptanonWrapper() { }
+    </script>
+    <!-- OptanonConsentNoticeEnd --><div class="mw-parser-output"><div class="eu4box metadata ambox ambox-content mbox-text" style="float:right; clear:right; width:330px; font-size:80%; background: #3c5a6e; border: 2px solid #20303B;">
+    <p>Please help with verifying or updating older sections of this article.<br>At least some were last verified for <a href="/Europa_Universalis_4_Wiki:Versioning" title="Europa Universalis 4 Wiki:Versioning">version</a> 1.23.
+    </p>
+  </div>
+    <p>A <b>scope</b> is the context that <a href="/Triggers" title="Triggers">triggers</a> and <a href="/Effects" title="Effects">effects</a> are used in.
+    </p>
+    <div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox webfonts-changed" style="display:none"><div class="toctitle" lang="en" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+      <ul>
+        <li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a>
+          <ul>
+            <li class="toclevel-2 tocsection-2"><a href="#Dynamic_scopes"><span class="tocnumber">1.1</span> <span class="toctext">Dynamic scopes</span></a></li>
+            <li class="toclevel-2 tocsection-3"><a href="#Logic_scopes"><span class="tocnumber">1.2</span> <span class="toctext">Logic scopes</span></a>
+              <ul>
+                <li class="toclevel-3 tocsection-4"><a href="#AND"><span class="tocnumber">1.2.1</span> <span class="toctext">AND</span></a></li>
+                <li class="toclevel-3 tocsection-5"><a href="#OR"><span class="tocnumber">1.2.2</span> <span class="toctext">OR</span></a></li>
+                <li class="toclevel-3 tocsection-6"><a href="#NOT"><span class="tocnumber">1.2.3</span> <span class="toctext">NOT</span></a></li>
+                <li class="toclevel-3 tocsection-7"><a href="#implication"><span class="tocnumber">1.2.4</span> <span class="toctext">implication</span></a></li>
+              </ul>
+            </li>
+            <li class="toclevel-2 tocsection-8"><a href="#Subscopes"><span class="tocnumber">1.3</span> <span class="toctext">Subscopes</span></a></li>
+            <li class="toclevel-2 tocsection-9"><a href="#Limit_scope"><span class="tocnumber">1.4</span> <span class="toctext">Limit scope</span></a></li>
+            <li class="toclevel-2 tocsection-10"><a href="#Tradenode_scopes"><span class="tocnumber">1.5</span> <span class="toctext">Tradenode scopes</span></a></li>
+          </ul>
+        </li>
+        <li class="toclevel-1 tocsection-11"><a href="#Dual_scopes"><span class="tocnumber">2</span> <span class="toctext">Dual scopes</span></a>
+          <ul>
+            <li class="toclevel-2 tocsection-12"><a href="#Country_and_Province"><span class="tocnumber">2.1</span> <span class="toctext">Country and Province</span></a></li>
+            <li class="toclevel-2 tocsection-13"><a href="#Country"><span class="tocnumber">2.2</span> <span class="toctext">Country</span></a></li>
+            <li class="toclevel-2 tocsection-14"><a href="#Province"><span class="tocnumber">2.3</span> <span class="toctext">Province</span></a></li>
+            <li class="toclevel-2 tocsection-15"><a href="#Trade_node"><span class="tocnumber">2.4</span> <span class="toctext">Trade node</span></a></li>
+          </ul>
+        </li>
+        <li class="toclevel-1 tocsection-16"><a href="#Effect_scopes"><span class="tocnumber">3</span> <span class="toctext">Effect scopes</span></a>
+          <ul>
+            <li class="toclevel-2 tocsection-17"><a href="#Country_2"><span class="tocnumber">3.1</span> <span class="toctext">Country</span></a></li>
+            <li class="toclevel-2 tocsection-18"><a href="#Province_2"><span class="tocnumber">3.2</span> <span class="toctext">Province</span></a></li>
+            <li class="toclevel-2 tocsection-19"><a href="#Tradenode"><span class="tocnumber">3.3</span> <span class="toctext">Tradenode</span></a></li>
+            <li class="toclevel-2 tocsection-20"><a href="#Unit"><span class="tocnumber">3.4</span> <span class="toctext">Unit</span></a></li>
+            <li class="toclevel-2 tocsection-21"><a href="#Missions"><span class="tocnumber">3.5</span> <span class="toctext">Missions</span></a></li>
+          </ul>
+        </li>
+        <li class="toclevel-1 tocsection-22"><a href="#Trigger_scopes"><span class="tocnumber">4</span> <span class="toctext">Trigger scopes</span></a>
+          <ul>
+            <li class="toclevel-2 tocsection-23"><a href="#Country_3"><span class="tocnumber">4.1</span> <span class="toctext">Country</span></a></li>
+            <li class="toclevel-2 tocsection-24"><a href="#Province_3"><span class="tocnumber">4.2</span> <span class="toctext">Province</span></a></li>
+            <li class="toclevel-2 tocsection-25"><a href="#Trade_node_2"><span class="tocnumber">4.3</span> <span class="toctext">Trade node</span></a></li>
+            <li class="toclevel-2 tocsection-26"><a href="#Missions_2"><span class="tocnumber">4.4</span> <span class="toctext">Missions</span></a></li>
+          </ul>
+        </li>
+        <li class="toclevel-1 tocsection-27"><a href="#Removed_scopes"><span class="tocnumber">5</span> <span class="toctext">Removed scopes</span></a></li>
+        <li class="toclevel-1 tocsection-28"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+      </ul>
+    </div>
+
+    <h2><span class="mw-headline" id="Overview">Overview</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=1" class="mw-editsection-visualeditor" title="Edit section: Overview">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=1" title="Edit section: Overview">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+    <p>All script scopes operate on one of two internal scopes: <i>country</i> and <i>province</i>. Scopes that are for a country scope will not function correctly when used in a province scope.
+    </p><p>Additionally, all script scopes operate in one of two type scopes: <i>effect</i> and <i>trigger</i>. Using an effect scope within a trigger scope will not work, and vice versa. There are scopes that operate in both type scopes.
+    </p><p>Which base scopes are <i>effect</i> and which are <i>trigger</i> depends on the feature you are modding. For example, in a decision: <code>potential = { }</code> and <code>allow = { }</code> are <i>trigger</i> scopes, whereas <code>effect = { }</code> is an <i>effect</i> scope. This is normally self-evident in most cases.
+    </p>
+    <h3><span class="mw-headline" id="Dynamic_scopes">Dynamic scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=2" class="mw-editsection-visualeditor" title="Edit section: Dynamic scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=2" title="Edit section: Dynamic scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Four script scopes are unique in that they change their contents depending on where they are used. They can be used in both <i>effect</i> and <i>trigger</i> scopes.
+    </p>
+    
+    <h3><span class="mw-headline" id="Logic_scopes">Logic scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=3" class="mw-editsection-visualeditor" title="Edit section: Logic scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=3" title="Edit section: Logic scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>There are three trigger scopes used to alter the boolean value of a trigger, or set of triggers. They are <i>AND</i>, <i>OR</i> and <i>NOT</i>.
+    </p>
+    <h4><span class="mw-headline" id="AND">AND</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=4" class="mw-editsection-visualeditor" title="Edit section: AND">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=4" title="Edit section: AND">edit source</a><span class="mw-editsection-bracket">]</span></span></h4>
+    <p>The <i>AND</i> scope groups a set of triggers together, and returns true only if all triggers nested within return true as well. This scope is the default scope for all trigger scopes, so you don't need to explicitly use a <i>AND</i> scope most of the time.
+    </p>
+    <pre>AND = {
+    tag = FRA
+    stability = 1
+}
+</pre>
+    <h4><span class="mw-headline" id="OR">OR</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=5" class="mw-editsection-visualeditor" title="Edit section: OR">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=5" title="Edit section: OR">edit source</a><span class="mw-editsection-bracket">]</span></span></h4>
+    <p>The <i>OR</i> scope splits multiple sets of triggers, returning true if one or more of the sets of triggers nested within return true. This scope is used to make triggers return valid on state 1 <i>or</i> state 2 <i>or</i> state 3, and so on. Often the <i>AND</i> scope is used within the group to group multiple triggers together.
+    </p>
+    <pre>stability = 1
+OR = {
+    tag = FRA
+    tag = SPA
+    AND = {
+        tag = CAS
+        NOT = { exists = SPA }
+    }   
+}
+</pre>
+    <h4><span class="mw-headline" id="NOT">NOT</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=6" class="mw-editsection-visualeditor" title="Edit section: NOT">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=6" title="Edit section: NOT">edit source</a><span class="mw-editsection-bracket">]</span></span></h4>
+    <p>The <i>NOT</i> scope inverts the truth value of a returned trigger. This allows you to check for the opposite instance of all triggers without needing an different trigger to do so. It also reverses the <i>x</i> or greater behaviour with numbers in triggers, making it less than <i>x</i>.
+    </p>
+    <pre>NOT = { stability = 1 }    # Returns true when stability is less than 1
+</pre>
+    <p><b>Note:</b> Multiple conditions in one NOT scope have the same effect as multiple NOT scopes which are combined with an AND scope.
+    </p>
+    
+    <h4><span class="mw-headline" id="implication">implication</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=7" class="mw-editsection-visualeditor" title="Edit section: implication">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=7" title="Edit section: implication">edit source</a><span class="mw-editsection-bracket">]</span></span></h4>
+    <p>There is no "implication" scope. If you need to express one (e.g. P → Q, "if P then Q"), use the logical equivalent with OR and negation instead (¬P ∨ Q, <span style="white-space:nowrap">"(not</span> P) or Q"). For example, the game encodes one of the conditions for using various religious CBs - "If Art of War is active and attacker and defender are both members of the Holy Roman Empire: the Peace of Westphalia has not occurred" - as something like the following:
+    </p>
+    <pre>OR = {
+    NOT = { has_dlc = "Art of War" }
+    is_part_of_hre = no
+    FROM = { is_part_of_hre = no }
+    hre_religion_treaty = no
+}
+</pre>
+    <h3><span class="mw-headline" id="Subscopes">Subscopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=8" class="mw-editsection-visualeditor" title="Edit section: Subscopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=8" title="Edit section: Subscopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Many scopes return multiple subscopes. For example, <code>every_owned_province = { }</code> returns every owned province scope. This means any effect within this scope is executed in every province subscope. Likewise for trigger scopes, just with comparison instead.
+    </p><p>A quick reference on which scopes operate in this way:
+    </p>
+    
+    <h3><span class="mw-headline" id="Limit_scope">Limit scope</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=9" class="mw-editsection-visualeditor" title="Edit section: Limit scope">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=9" title="Edit section: Limit scope">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>For all effect scopes, you can nest a <code>limit = { }</code> to filter the returned subscopes.
+    </p><p>For example, the following returns subscopes of countries that have 3 Stability:
+    </p>
+    <pre>every_country = {
+    limit = {
+        stability = 3
+    }
+}
+</pre>
+    <p>Trigger scopes are inherently used for filtering, so do not require a limit scope.
+    </p>
+    <h3><span class="mw-headline" id="Tradenode_scopes">Tradenode scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=10" class="mw-editsection-visualeditor" title="Edit section: Tradenode scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=10" title="Edit section: Tradenode scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Theoretically tradenode scopes are province scopes. However, in practice you need to be within a tradenode scope to use tradenode effect and trigger scopes.
+    </p><p>This means you cannot do this:
+    </p>
+    <pre>ROOT = {
+    every_privateering_country = {
+    
+    }
+}
+</pre>
+    <p>Rather, you need to do this:
+    </p>
+    <pre>ROOT = {
+    random_active_trade_node = {
+        every_privateering_country = {
+            
+        }
+    }
+}
+</pre>
+    <h2><span class="mw-headline" id="Dual_scopes">Dual scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=11" class="mw-editsection-visualeditor" title="Edit section: Dual scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=11" title="Edit section: Dual scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+    <p>Dual scopes can be used in both <b>effect</b> and <b>trigger</b> contexts. However they operate differently in either context.
+    </p><p>In an effect scope, a dual scope will act like <code>every_&lt;scope&gt;</code> and apply effects to <b>all</b> subscopes.
+    </p><p>In an trigger scope, a dual scope will act like <code>any_&lt;scope&gt;</code> and match for <b>one</b> subscope in the set.
+    </p><p>You can alter this for dual scopes that return more than one subscope by including the <code>type = all</code> line within the dual scope. This will make the dual scope match for <b>all</b> subscopes.
+    </p>
+    <pre>&lt;region&gt; = {
+    
+    type = all
+}
+</pre>
+    <h3><span class="mw-headline" id="Country_and_Province">Country and Province</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=12" class="mw-editsection-visualeditor" title="Edit section: Country and Province">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=12" title="Edit section: Country and Province">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>&lt;province id&gt;
+      </td>
+      <td><code>110 = { }</code>
+      </td>
+      <td>Refers to the province ids listed <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/map/definition.csv</span>
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>&lt;tag&gt;
+      </td>
+      <td><code>FRA = { }</code>
+      </td>
+      <td>Refers to the country tags listed <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/common/country_tags</span>
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>&lt;area&gt;
+      </td>
+      <td><code>western_mediterrenean_area = { }</code>
+      </td>
+      <td>Refers to any area found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/map/area.txt</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.14
+      </td></tr>
+    <tr>
+      <td>&lt;region&gt;
+      </td>
+      <td><code>france_region = { }</code>
+      </td>
+      <td>Refers to any region found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/map/region.txt</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>&lt;superregion&gt;
+      </td>
+      <td><code>india_superregion = { }</code>
+      </td>
+      <td>Refers to any superregion found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/map/superregion.txt</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.14 (1.15 for trigger)
+      </td></tr>
+    <tr>
+      <td>&lt;provincegroup&gt;
+      </td>
+      <td><code>my_prov_group = { }</code>
+      </td>
+      <td>Refers to any province group found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/map/provincegroup.txt</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.14 (1.15 for trigger)
+      </td></tr>
+    <tr>
+      <td>&lt;continent&gt;
+      </td>
+      <td><code>europe = { }</code>
+      </td>
+      <td>Refers to any continent found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/map/continent.txt</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>&lt;trade_company&gt;
+      </td>
+      <td><code>trade_company_west_africa = { }</code>
+      </td>
+      <td>Refers to any trade company found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/common/trade_companies/</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.6
+      </td></tr>
+    <tr>
+      <td>&lt;colonial_region&gt;
+      </td>
+      <td><code>colonial_alaska = { }</code>
+      </td>
+      <td>Refers to any colonial region found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/common/colonial_regions/</span>
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.4
+      </td></tr>
+    <tr>
+      <td>&lt;event_target&gt;
+      </td>
+      <td><code>event_target:my_event_target_name = { }</code>
+      </td>
+      <td>Refers to the saved event target scope. Potentially can be any scope internally.
+      </td>
+      <td>Yes
+      </td>
+      <td>Any
+      </td>
+      <td>1.8
+      </td></tr>
+    <tr>
+      <td>emperor
+      </td>
+      <td><code>emperor = { }</code>
+      </td>
+      <td>Refers to the country (if it exists) that is currently the Holy Roman Emperor.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>revolution_target
+      </td>
+      <td><code>revolution_target = { }</code>
+      </td>
+      <td>Refers to the country (if it exists) that is the current revolution target.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>crusade_target
+      </td>
+      <td><code>crusade_target = { }</code>
+      </td>
+      <td>Refers to the country (if it exists) that is the current crusade target.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>papal_controller
+      </td>
+      <td><code>papal_controller = { }</code>
+      </td>
+      <td>Refers to the country (if it exists) that is the current papal controller.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.35
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Country">Country</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=13" class="mw-editsection-visualeditor" title="Edit section: Country">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=13" title="Edit section: Country">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>colonial_parent
+      </td>
+      <td><code>colonial_parent = { }</code>
+      </td>
+      <td>Refers to the country (if it exists) that is the colonial parent of the current country scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.4
+      </td></tr>
+    <tr>
+      <td>overlord
+      </td>
+      <td><code>overlord = { }</code>
+      </td>
+      <td>Refers to the country (if it exists) that is the overlord of the current country scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>capital_scope
+      </td>
+      <td><code>capital_scope = { }</code>
+      </td>
+      <td>Refers to the capital province of the current country scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Province">Province</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=14" class="mw-editsection-visualeditor" title="Edit section: Province">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=14" title="Edit section: Province">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>owner
+      </td>
+      <td><code>owner = { }</code>
+      </td>
+      <td>Refers to the country that owns the current province scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>controller
+      </td>
+      <td><code>controller = { }</code>
+      </td>
+      <td>Refers to the country that controls the current province scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>sea_zone
+      </td>
+      <td><code>sea_zone = { }</code>
+      </td>
+      <td>Refers to the sea province on which the current land province scope has a port.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>tribal_owner
+      </td>
+      <td><code>tribal_owner = { }</code>
+      </td>
+      <td>Scopes to the country that has the current province as tribal land
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.32
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Trade_node">Trade node</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=15" class="mw-editsection-visualeditor" title="Edit section: Trade node">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=15" title="Edit section: Trade node">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>most_province_trade_power
+      </td>
+      <td><code>most_province_trade_power = { }</code>
+      </td>
+      <td>The country in the trade node that generates the most trade power from provinces.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>strongest_trade_power
+      </td>
+      <td><code>strongest_trade_power = { }</code>
+      </td>
+      <td>The country with the most trade power in the node.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h2><span class="mw-headline" id="Effect_scopes">Effect scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=16" class="mw-editsection-visualeditor" title="Edit section: Effect scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=16" title="Edit section: Effect scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+    <p>All effect scopes that potentially match multiple subscopes, plus <code>if</code>, can be limited with the <code>limit = { }</code> scope within. For example:
+    </p>
+    <pre>every_country = { 
+    limit = {
+        &lt;triggers&gt;
+    }
+    &lt;effects&gt;
+}
+</pre>
+    <p>Scopes that choose one random subscope (e.g. <code>random_owned_province</code>) make their choice after applying the limit.
+    </p>
+    <h3><span class="mw-headline" id="Country_2">Country</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=17" class="mw-editsection-visualeditor" title="Edit section: Country">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=17" title="Edit section: Country">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the country scopes--e.g., <code>FRA = { }</code>
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>every_ally
+      </td>
+      <td><code>every_ally = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> valid countries that meet the triggers in the limit.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_coalition_member
+      </td>
+      <td><code>every_coalition_member = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> members of the coalition against the current scope (if any).
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_country
+      </td>
+      <td><code>every_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries in the world. Avoid this if you can use something more specific.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_country_including_inactive
+      </td>
+      <td><code>every_country_including_inactive = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> country tags, even countries that do not own any provinces on the map. Avoid this if you can use something more specific.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.31.4
+      </td></tr>
+    <tr>
+      <td>every_elector
+      </td>
+      <td><code>every_elector = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> electors of the HRE.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_enemy_country
+      </td>
+      <td><code>every_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that have rivalled the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_known_country
+      </td>
+      <td><code>every_known_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that have been discovered by the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_local_enemy
+      </td>
+      <td><code>every_local_enemy = { }</code>
+      </td>
+      <td>???
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_neighbor_country
+      </td>
+      <td><code>every_neighbor_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that share a land/strait border with the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_rival_country
+      </td>
+      <td><code>every_rival_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that the current scope has rivalled.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_subject_country
+      </td>
+      <td><code>every_subject_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> subject nations under the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.4
+      </td></tr>
+    <tr>
+      <td>every_war_enemy_country
+      </td>
+      <td><code>every_war_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that are at war with the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>random_ally
+      </td>
+      <td><code>random_ally = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> valid country that meet the triggers in the limit.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_coalition_member
+      </td>
+      <td><code>random_coalition_member = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random member of the coalition against the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_country
+      </td>
+      <td><code>random_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country among all countries in the world. Avoid this if you can use something more specific.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_elector
+      </td>
+      <td><code>random_elector = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random elector of the HRE.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_enemy_country
+      </td>
+      <td><code>random_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that has rivalled the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_hired_mercenary_company
+      </td>
+      <td><code>random_hired_mercenary_company = { }</code><br>
+        <p>Possible parameters:<br>
+          <code>template = &lt;string&gt;</code><br>
+          Optional: Checks whether the mercenary company uses the specified template.<br>
+          <code>is_foreign_company = yes</code><br>
+          Optional: Checks whether the mercenary company is of foreign origin.<br>
+          <code>hired_for_months = &lt;int&gt;</code><br>
+          Optional: Checks how long the mercenary company has been hired.<br>
+          <code>has_company_manpower = &lt;int&gt;</code><br>
+          Optional: Checks whether the company has X% of its manpower (can be negated by <code>NOT = { }</code>).<br>
+          <code>home_province = { }</code><br>
+          Optional: Scopes to the company's home province if existing.<br>
+          <code>location = { }</code><br>
+          Optional: Scopes to the current province location of the company.
+        </p>
+      </td>
+      <td>Scopes to <b>one</b> random mercenary companies currently hired by the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Unit
+      </td>
+      <td>1.30
+      </td></tr>
+    <tr>
+      <td>random_known_country
+      </td>
+      <td><code>random_known_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country that has been discovered by the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_local_enemy
+      </td>
+      <td><code>random_local_enemy = { }</code>
+      </td>
+      <td>???
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_neighbor_country
+      </td>
+      <td><code>random_neighbor_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country that shares a land/strait border with the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_rival_country
+      </td>
+      <td><code>random_rival_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that the current scope has rivalled.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_subject_country
+      </td>
+      <td><code>random_subject_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random subject country under the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.4
+      </td></tr>
+    <tr>
+      <td>random_war_enemy_country
+      </td>
+      <td><code>random_war_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country that is at war with the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>every_core_province
+      </td>
+      <td><code>every_core_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces that this country has a core on, whether owned or not.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_heretic_province
+      </td>
+      <td><code>every_heretic_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces whose religion is heretic to the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_owned_province
+      </td>
+      <td><code>every_owned_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces the current scope owns.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_province
+      </td>
+      <td><code>every_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in the world.<br><b>Note:</b> executing effects on every province without a limit will cause slowdown in game. Use something more specific if you can.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_core_province
+      </td>
+      <td><code>random_core_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province that the current scope has a core on, whether owned or not.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_heretic_province
+      </td>
+      <td><code>random_heretic_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province whose religion is heretic to the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_owned_area
+      </td>
+      <td><code>random_owned_area = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> valid area that meet the triggers in the limit.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.18
+      </td></tr>
+    <tr>
+      <td>random_owned_province
+      </td>
+      <td><code>random_owned_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province the current scope owns.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_active_trade_node
+      </td>
+      <td><code>random_active_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> valid tradenode (province) that meet the triggers in the limit.<br>Active means the current scope is interacting with the trade node in some way.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.18
+      </td></tr>
+    <tr>
+      <td>random_trade_node
+      </td>
+      <td><code>random_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random trade node.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>home_trade_node_effect_scope
+      </td>
+      <td><code>home_trade_node_effect_scope = { }</code>
+      </td>
+      <td>Scopes to the trade node where the country has its main trading port.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>
+      </td></tr>
+    <tr>
+      <td>every_capital_province
+      </td>
+      <td><code>every_capital_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> capital provinces in the world.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>random_capital_province
+      </td>
+      <td><code>random_capital_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random capital province.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>every_claimed_province
+      </td>
+      <td><code>every_claimed_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces claimed by the current country scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>random_claimed_province
+      </td>
+      <td><code>random_claimed_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province claimed by the current country scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Province_2">Province</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=18" class="mw-editsection-visualeditor" title="Edit section: Province">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=18" title="Edit section: Province">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the province scopes--e.g., <code>capital_scope = { }</code>. These generally only select land provinces.
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>every_empty_neighbor_province
+      </td>
+      <td><code>every_empty_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces sharing a land/strait border with the current scope that are colonizable and uncolonized.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_neighbor_province
+      </td>
+      <td><code>every_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces sharing a land/strait border with the current scope.<br>Does not include empty provinces.
+        <p>May also be used within country scope to specify all provinces which border the current scope.
+        </p>
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_province_in_state
+      </td>
+      <td><code>every_province_in_state = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in the same state (Does not apply to provinces in territories, if you want to apply in territories, then use area = { limit = { owned_by = ROOT } ... }).
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>random_empty_neighbor_province
+      </td>
+      <td><code>random_empty_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province sharing a land/strait border with the current scope that is colonizable and uncolonized.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_neighbor_province
+      </td>
+      <td><code>random_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province sharing a land/strait border with the current scope.<br>Does not include empty provinces.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_province_in_state
+      </td>
+      <td><code>random_province_in_state = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province in the same state as the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>random_area_province
+      </td>
+      <td><code>random_area_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province in the same area as the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.35
+      </td></tr>
+    <tr>
+      <td>random_province
+      </td>
+      <td><code>random_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province among all provinces in the world.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_core_country
+      </td>
+      <td><code>every_core_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that have a core on the current scope, whether existing or not.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_core_country
+      </td>
+      <td><code>random_core_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country that has a core on the current scope, whether existing or not.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>area
+      </td>
+      <td><code>area = { }</code>
+      </td>
+      <td>Refers to all provinces in the area that the current province scope is in.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.14
+      </td></tr>
+    <tr>
+      <td>region
+      </td>
+      <td><code>region = { }</code>
+      </td>
+      <td>Refers to all provinces in the region that the current province scope is in.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.14
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Tradenode">Tradenode</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=19" class="mw-editsection-visualeditor" title="Edit section: Tradenode">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=19" title="Edit section: Tradenode">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the tradenode scopes--e.g., <code>random_active_trade_node = { }</code>
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>every_privateering_country
+      </td>
+      <td><code>every_privateering_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that are sending privateers to the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.6
+      </td></tr>
+    <tr>
+      <td>random_privateering_country
+      </td>
+      <td><code>random_privateering_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country that is sending privateers to the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.6
+      </td></tr>
+    <tr>
+      <td>every_trade_node_member_country
+      </td>
+      <td><code>every_trade_node_member_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that own a province in the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_trade_node_member_country
+      </td>
+      <td><code>random_trade_node_member_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random country that owns a province in the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>every_trade_node_member_province
+      </td>
+      <td><code>every_trade_node_member_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in the current trade node.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_trade_node_member_province
+      </td>
+      <td><code>random_trade_node_member_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province in the current trade node.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Unit">Unit</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=20" class="mw-editsection-visualeditor" title="Edit section: Unit">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=20" title="Edit section: Unit">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the unit scopes.
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>unit_owner
+      </td>
+      <td><code>unit_owner = { }</code>
+      </td>
+      <td>Scopes to the owner of the unit.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>enemy_unit
+      </td>
+      <td><pre>enemy_unit = { }
+</pre>
+      </td>
+      <td>Scopes to units that are considered enemies.
+        <p>Only used within <code>on_battle_won_unit</code> and <code>on_battle_lost_unit</code> on actions.
+        </p>
+      </td>
+      <td>No
+      </td>
+      <td>Unit
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>location
+      </td>
+      <td><pre>location = { }
+</pre>
+      </td>
+      <td>Scopes to the unit's current location.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.30
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Missions">Missions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=21" class="mw-editsection-visualeditor" title="Edit section: Missions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=21" title="Edit section: Missions">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Only available in missions found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/missions</span>.
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>every_target_province
+      </td>
+      <td><code>every_target_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces among those specified as targets in the mission.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>random_target_province
+      </td>
+      <td><code>random_target_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> random province among those specified as targets in the mission.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h2><span class="mw-headline" id="Trigger_scopes">Trigger scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=22" class="mw-editsection-visualeditor" title="Edit section: Trigger scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=22" title="Edit section: Trigger scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+    <h3><span class="mw-headline" id="Country_3">Country</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=23" class="mw-editsection-visualeditor" title="Edit section: Country">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=23" title="Edit section: Country">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the country scopes--e.g., <code>FRA = { }</code>
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>any_army
+      </td>
+      <td><code>any_army = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> armies currently fielded by the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Unit
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_ally
+      </td>
+      <td><code>all_ally = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> valid countries that meet the triggers.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_coalition_member
+      </td>
+      <td><code>all_coalition_member = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> members of the coalition against the current scope (if any).
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_country
+      </td>
+      <td><code>all_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries in the world excluding your own country. Avoid this if you can use something more specific.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_countries_including_self
+      </td>
+      <td><code>all_countries_including_self = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries in the world including your own country. Avoid this if you can use something more specific.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.26
+      </td></tr>
+    <tr>
+      <td>all_elector
+      </td>
+      <td><code>all_elector = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> electors of the HRE
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_enemy_country
+      </td>
+      <td><code>all_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that have rivalled the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_known_country
+      </td>
+      <td><code>all_known_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that have been discovered by the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_local_enemy
+      </td>
+      <td><code>all_local_enemy = { }</code>
+      </td>
+      <td>???
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_neighbor_country
+      </td>
+      <td><code>all_neighbor_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that own a province that shares a land/strait border with a province owned by the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_rival_country
+      </td>
+      <td><code>all_rival_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that the current scope has rivalled.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_subject_country
+      </td>
+      <td><code>all_subject_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> subject countries under the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.4
+      </td></tr>
+    <tr>
+      <td>all_war_enemy_countries
+      </td>
+      <td><code>all_war_enemy_countries = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that are at war with the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>all_core_province
+      </td>
+      <td><code>all_core_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces that the current scope has a core on, whether owned or not.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_heretic_province
+      </td>
+      <td><code>all_heretic_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces whose religion is heretic to the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_owned_province
+      </td>
+      <td><code>all_owned_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces owned by the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_province
+      </td>
+      <td><code>all_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in the world. Avoid this if you can use something more specific.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_state_province
+      </td>
+      <td><code>all_state_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in states of the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>all_states
+      </td>
+      <td><code>all_states = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> states of the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>all_active_trade_node
+      </td>
+      <td><code>all_active_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> active trade nodes.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.18
+      </td></tr>
+    <tr>
+      <td>all_trade_node
+      </td>
+      <td><code>all_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> trade nodes.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_ally
+      </td>
+      <td><code>any_ally = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> valid country that meet the triggers.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_coalition_member
+      </td>
+      <td><code>any_coalition_member = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> member of the coalition against the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_country
+      </td>
+      <td><code>any_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country among all countries in the world. Avoid this if you can use something more specific.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_elector
+      </td>
+      <td><code>any_elector = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> elector of the HRE.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_enemy_country
+      </td>
+      <td><code>any_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that has rivalled the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_known_country
+      </td>
+      <td><code>any_known_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that has been discovered by the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_local_enemy
+      </td>
+      <td><code>any_local_enemy = { }</code>
+      </td>
+      <td>???
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_neighbor_country
+      </td>
+      <td><code>any_neighbor_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country sharing a land/strait border with the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_rival_country
+      </td>
+      <td><code>any_rival_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that the current scope has rivalled.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_subject_country
+      </td>
+      <td><code>any_subject_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> subject country under the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.4
+      </td></tr>
+    <tr>
+      <td>any_war_enemy_country
+      </td>
+      <td><code>any_war_enemy_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that is at war with the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>any_core_province
+      </td>
+      <td><code>any_core_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province that the current scope has a core on, whether owned or not.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_heretic_province
+      </td>
+      <td><code>any_heretic_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province whose religion is heretic to the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_hired_mercenary_company
+      </td>
+      <td><code>any_hired_mercenary_company = { }</code><br>
+        <p>Possible parameters:<br>
+          <code>template = &lt;string&gt;</code><br>
+          Optional: Checks whether the mercenary company uses the specified template.<br>
+          <code>is_foreign_company = yes</code><br>
+          Optional: Checks whether the mercenary company is of foreign origin.<br>
+          <code>hired_for_months = &lt;int&gt;</code><br>
+          Optional: Checks how long the mercenary company has been hired.<br>
+          <code>has_company_manpower = &lt;int&gt;</code><br>
+          Optional: Checks whether the company has X% of its manpower (can be negated by <code>NOT = { }</code>).<br>
+          <code>home_province = { }</code><br>
+          Optional: Scopes to the company's home province if existing.<br>
+          <code>location = { }</code><br>
+          Optional: Scopes to the current province location of the company.
+        </p>
+      </td>
+      <td>Scopes to <b>one</b> mercenary companies currently hired by the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Unit
+      </td>
+      <td>1.30
+      </td></tr>
+    <tr>
+      <td>any_owned_province
+      </td>
+      <td><code>any_owned_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province owned by the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_province
+      </td>
+      <td><code>any_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province from among all provinces in the world. Avoid this if you can use something more specific.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_state
+      </td>
+      <td><code>any_state = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> state of the current country.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>any_active_trade_node
+      </td>
+      <td><code>any_active_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> valid tradenode (province) that meet the triggers.<br>Note: will return true if a merchant is placed, even without explicit triggers.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.18
+      </td></tr>
+    <tr>
+      <td>any_trade_node
+      </td>
+      <td><code>any_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> trade node among all trade nodes in the world.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>home_trade_node
+      </td>
+      <td><code>home_trade_node = { }</code>
+      </td>
+      <td>Scopes to the trade node containing the current scope's main trade port.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_great_power
+      </td>
+      <td><code>any_great_power = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> great power among all great powers in the world <b>including</b> the ROOT country.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.30
+      </td></tr>
+    <tr>
+      <td>any_other_great_power
+      </td>
+      <td><code>any_other_great_power = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> great power among all great powers in the world <b>except</b> the ROOT country.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.30
+      </td></tr>
+    <tr>
+      <td>all_capital_provinces
+      </td>
+      <td><code>all_capital_provinces = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> capital provinces in the world.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>any_capital_province
+      </td>
+      <td><code>any_capital_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> capital province among all capitals in the world.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>all_claimed_provinces
+      </td>
+      <td><code>all_claimed_provinces = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> claimed provinces of the current country scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>any_claimed_province
+      </td>
+      <td><code>any_claimed_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province claimed by the current country scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.34
+      </td></tr>
+    <tr>
+      <td>any_tribal_land
+      </td>
+      <td><code>any_tribal_land = { }</code>
+      </td>
+      <td>Scopes to tribal land provinces of the country
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.32
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Province_3">Province</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=24" class="mw-editsection-visualeditor" title="Edit section: Province">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=24" title="Edit section: Province">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the province scopes—e.g., <code>capital_scope = { }</code>
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>all_empty_neighbor_province
+      </td>
+      <td><code>all_empty_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces sharing a land/strait border with the current scope that are colonizable and uncolonized.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_province_in_state
+      </td>
+      <td><code>all_province_in_state = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in the same state as the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>all_neighbor_province
+      </td>
+      <td><code>all_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces sharing a land/strait border with the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_empty_neighbor_province
+      </td>
+      <td><code>any_empty_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province sharing a land/strait border with the current scope that is colonizable and uncolonized.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_province
+      </td>
+      <td><code>any_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province among all provinces in the world. Avoid this if you can use something more specific.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_province_in_state
+      </td>
+      <td><code>any_province_in_state = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province in the same state as the current scope.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.20
+      </td></tr>
+    <tr>
+      <td>any_friendly_coast_border_province
+      </td>
+      <td><code>any_friendly_coast_border_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province that shares a border or sea zone with the current scope that is friendly to the current scope (meaning its owner is the same or has positive relations).
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.18
+      </td></tr>
+    <tr>
+      <td>any_neighbor_province
+      </td>
+      <td><code>any_neighbor_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province that shares a border with the current scope.
+        <p>May also be used within country scope to specify any province which borders the current scope.
+        </p>
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_core_country
+      </td>
+      <td><code>all_core_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that have a core on the current scope, whether existing or not.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_core_country
+      </td>
+      <td><code>any_core_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that has a core on the current scope, whether existing or not.
+      </td>
+      <td>No
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>area_for_scope_province
+      </td>
+      <td><code>area_for_scope_province = { }</code>
+      </td>
+      <td>Scopes to the area that the current province scope is in. Used with <code>type = all</code> when you want to target all provinces of an area.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.14
+      </td></tr>
+    <tr>
+      <td>region_for_scope_province
+      </td>
+      <td><code>region_for_scope_province = { }</code>
+      </td>
+      <td>Scopes to the region that the current province scope is in. Used with <code>type = all</code> when you want to target all provinces of a region.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.14
+      </td></tr>
+    <tr>
+      <td>colonial_region_for_scope_province
+      </td>
+      <td><code>colonial_region_for_scope_province = { }</code>
+      </td>
+      <td>Scopes to the colonial region that the current province scope is in. Used with <code>type = all</code> when you want to target all provinces of a colonial region.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.30
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Trade_node_2">Trade node</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=25" class="mw-editsection-visualeditor" title="Edit section: Trade node">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=25" title="Edit section: Trade node">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Used within the trade node scopes—e.g., <code>any_active_trade_node = { }</code>
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>all_privateering_country
+      </td>
+      <td><code>all_privateering_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that are sending privateers to the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.6
+      </td></tr>
+    <tr>
+      <td>all_trade_node_member_country
+      </td>
+      <td><code>all_trade_node_member_country = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> countries that own a province in the current trade node.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_privateering_country
+      </td>
+      <td><code>any_privateering_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that is sending privateers to the current scope.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.6
+      </td></tr>
+    <tr>
+      <td>any_trade_node_member_country
+      </td>
+      <td><code>any_trade_node_member_country = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> country that owns a province in the current trade node.
+      </td>
+      <td>Yes
+      </td>
+      <td>Country
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>all_trade_node_member_province
+      </td>
+      <td><code>all_trade_node_member_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces in the current trade node.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_trade_node_member_province
+      </td>
+      <td><code>any_trade_node_member_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province in the current trade node.
+      </td>
+      <td>No
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h3><span class="mw-headline" id="Missions_2">Missions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=26" class="mw-editsection-visualeditor" title="Edit section: Missions">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=26" title="Edit section: Missions">edit source</a><span class="mw-editsection-bracket">]</span></span></h3>
+    <p>Only available in missions found in <span class="inline-sup" style="background-color:#f9f9f9; color:DarkSlateGray; border:1px solid #dcdcdc; font-family: monospace,Courier;">/Europa Universalis IV/missions</span>.
+    </p>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="25%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Multiple Subscopes
+        </th>
+        <th width="5%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Changes Scope To
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Added
+        </th></tr></thead><tbody>
+    <tr>
+      <td>all_target_province
+      </td>
+      <td><code>all_target_province = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> provinces specified as a target in the mission.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr>
+    <tr>
+      <td>any_target_province
+      </td>
+      <td><code>any_target_province = { }</code>
+      </td>
+      <td>Scopes to <b>one</b> province specified as a target in the mission.
+      </td>
+      <td>Yes
+      </td>
+      <td>Province
+      </td>
+      <td>1.1
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h2><span class="mw-headline" id="Removed_scopes">Removed scopes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=27" class="mw-editsection-visualeditor" title="Edit section: Removed scopes">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=27" title="Edit section: Removed scopes">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+    <table class="wikitable sortable jquery-tablesorter" width="100%">
+      <thead><tr>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Name
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Example
+        </th>
+        <th width="20%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Description
+        </th>
+        <th width="10%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Version Removed
+        </th>
+        <th width="15%" class="headerSort" tabindex="0" role="columnheader button" title="Sort ascending">Alternatives
+        </th></tr></thead><tbody>
+    <tr>
+      <td>every_trade_node
+      </td>
+      <td><code>every_trade_node = { }</code>
+      </td>
+      <td>Scopes to <b>all</b> trade nodes.
+      </td>
+      <td>1.30
+      </td>
+      <td>Province group of one trade node member each, or loop with random_trade_node
+      </td></tr></tbody><tfoot></tfoot></table>
+    <h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/index.php?title=Scopes&amp;veaction=edit&amp;section=28" class="mw-editsection-visualeditor" title="Edit section: References">edit</a><span class="mw-editsection-divider"> | </span><a href="/index.php?title=Scopes&amp;action=edit&amp;section=28" title="Edit section: References">edit source</a><span class="mw-editsection-bracket">]</span></span></h2>
+    <div style="clear: both;"></div>
+    <div style="padding: 2px; border: 1px solid #aaa; text-align: center; border-collapse: collapse; font-size: 100%;">
+      <div style="height: 1.6em; font-weight: bold; font-size: 105%; background-color: #efefef;"><b><a href="/Modding" title="Modding">Modding</a></b></div>
+      <div style="font-size:0.9em;">
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Documentation
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Effects" title="Effects">Effects</a> • <a href="/Triggers" title="Triggers">Triggers</a> • <a href="/Modifier_list" title="Modifier list">Modifiers</a> • <a class="mw-selflink selflink">Scopes</a> • <a href="/Variables" title="Variables">Variables</a> • <a href="/Localisation" title="Localisation">Localisation</a> • <a href="/Customizable_localization" title="Customizable localization">Customizable localization</a> • <a href="/Run_files" title="Run files">Run files</a> • <a href="/List_of_event_pictures" title="List of event pictures">List of event pictures</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Scripting
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Scripted_function_modding" title="Scripted function modding">Scripted function</a> • <a href="/Advisor_modding" title="Advisor modding">Advisors</a> • <a href="/Age_modding" title="Age modding">Ages</a> • <a href="/Scenario_modding" title="Scenario modding">Bookmarks</a> • <a href="/Building_modding" title="Building modding">Buildings</a> • <a href="/Casus_belli_modding" title="Casus belli modding">Casus belli</a> • <a href="/Colonial_regions_modding" title="Colonial regions modding">Colonial regions</a> • <a href="/Country_creation" title="Country creation">Countries</a> • <a href="/Culture_modding" title="Culture modding">Culture</a> • <a href="/Decision_modding" title="Decision modding">Decisions</a> • <a href="/Defines" title="Defines">Defines</a> • <a href="/Diplomatic_action_modding" title="Diplomatic action modding">Diplomatic actions</a> • <a href="/Disaster_modding" title="Disaster modding">Disasters</a> • <a href="/Empire_of_China_modding" title="Empire of China modding">Empire of China</a> • <a href="/Estate_modding" title="Estate modding">Estates</a> • <a href="/Event_modding" title="Event modding">Events</a> • <a href="/Faction_modding" title="Faction modding">Factions</a> • <a href="/Government_modding" title="Government modding">Government</a> • <a href="/Government_mechanic_modding" title="Government mechanic modding">Government Mechanics</a> • <a href="/Great_project_modding" title="Great project modding">Great projects</a> • <a href="/History_modding" title="History modding">History</a> • <a href="/Holy_Roman_Empire_modding" title="Holy Roman Empire modding">Holy Roman Empire</a> • <a href="/Idea_group_modding" title="Idea group modding">Idea groups</a> • <a href="/Institutions_modding" title="Institutions modding">Institutions</a> • <a href="/Mercenaries_modding" title="Mercenaries modding">Mercenaries</a>  • <a href="/Mission_modding" title="Mission modding">Missions</a> • <a href="/Modifier_modding" title="Modifier modding">Modifiers</a> • <a href="/On_Actions" title="On Actions">On Actions</a> • <a href="/Parliament_modding" title="Parliament modding">Parliament</a> • <a href="/Peace_treaty_modding" title="Peace treaty modding">Peace treaties</a> • <a href="/Policy_modding" title="Policy modding">Policies</a> •  <a href="/Rebel_modding" title="Rebel modding">Rebel types</a> • <a href="/Religion_modding" title="Religion modding">Religion</a> • <a href="/Subject_type_modding" title="Subject type modding">Subject types</a> • <a href="/Technology_modding" title="Technology modding">Technology</a> • <a href="/Trade_company_modding" title="Trade company modding">Trade companies</a> • <a href="/Trade_goods_modding" title="Trade goods modding">Trade goods</a> • <a href="/Unit_modding" title="Unit modding">Units</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Map
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Map_modding" title="Map modding">Map</a> • <a href="/Map_Modding_Quick_Reference" title="Map Modding Quick Reference">Map Modding Quick Reference</a> • <a href="/Random_New_World_modding" title="Random New World modding">Random New World</a> • <a href="/Trade_node_modding" title="Trade node modding">Trade nodes</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Graphics
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Model_modding" title="Model modding">3D Models</a> • <a href="/Interface_modding" title="Interface modding">Interface</a> • <a href="/Graphical_asset_modding" title="Graphical asset modding">Graphical Assets</a> • <a href="/Font_modding" title="Font modding">Fonts</a> • <a href="/Unit_models" title="Unit models">Unit models</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Audio
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Music_modding" title="Music modding">Music</a> • <a href="/Sound_modding" title="Sound modding">Sound</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Other
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Console_commands" title="Console commands">Console commands</a> • <a href="/Checksum" title="Checksum">Checksum</a> • <a href="/Mod_structure" title="Mod structure">Mod structure</a> • <a href="/Mod_troubleshooting" title="Mod troubleshooting">Troubleshooting</a> • <a href="/Run_files" title="Run files">Run files</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Tools
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Clausewitz_Scenario_Editor" title="Clausewitz Scenario Editor">Clausewitz Scenario Editor</a> • <a href="/EU4_Mod_Editing_Tool" title="EU4 Mod Editing Tool">EU4 Mod Editing Tool</a> • <a href="/EUM" title="EUM">EUM</a> • <a href="/JoroDox_mod_making_tool" title="JoroDox mod making tool">JoroDox mod making tool</a> • <a href="/The_Validator" title="The Validator">The Validator</a>
+            </td></tr></tbody></table>
+        <table style="font-size: 11px; margin: 0px 0px -2px -2px; width: 100%;">
+
+          <tbody><tr>
+            <td style="width: 15%; background: #EDEDED; font-weight: bold; text-align: right; padding: 2px 5px;">Guides
+            </td>
+            <td style="text-align: left; padding: 2px 5px;"><a href="/Province_modding" title="Province modding">Adding a province</a> • <a href="/Map_Modding_Quick_Reference" title="Map Modding Quick Reference">Map Modding Quick Reference</a> • <a href="/Save-game_editing" title="Save-game editing">Save-game editing</a> • <a href="/Scripting_Tutorial" title="Scripting Tutorial">Scripting Tutorial</a>
+            </td></tr></tbody></table>
+      </div></div>
+    <!-- 
+    NewPP limit report
+    Cached time: 20250227140119
+    Cache expiry: 86400
+    Reduced expiry: false
+    Complications: [show‐toc]
+    CPU time usage: 0.174 seconds
+    Real time usage: 0.207 seconds
+    Preprocessor visited node count: 458/1000000
+    Post‐expand include size: 16351/2097152 bytes
+    Template argument size: 7019/2097152 bytes
+    Highest expansion depth: 6/100
+    Expensive parser function count: 0/100
+    Unstrip recursion depth: 0/20
+    Unstrip post‐expand size: 1118/5000000 bytes
+    -->
+    <!--
+    Transclusion expansion time report (%,ms,calls,template)
+    100.00%   49.568      1 -total
+     54.50%   27.015      1 Template:Modding_navbox
+     42.60%   21.116      1 Template:Navbox
+     17.40%    8.624     11 Template:Path
+     17.02%    8.438      1 Template:Clear
+     14.09%    6.983      1 Template:Version
+     11.50%    5.699      8 Template:Navboxgroup
+      9.66%    4.789      1 Template:Nowrap
+    -->
+
+    <!-- Saved in parser cache with key wiki_eu4-mweu4_:pcache:idhash:2575-0!canonical and timestamp 20250227140119 and revision id 164336.
+     -->
+  </div>
+    <div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="https://eu4.paradoxwikis.com/index.php?title=Scopes&amp;oldid=164336">https://eu4.paradoxwikis.com/index.php?title=Scopes&amp;oldid=164336</a>"</div></div>
+</head>
+<body>
+
+</body>
+</html>
